@@ -1,8 +1,27 @@
-var express = require('express');
-var app = express();
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const path = require('path');
+const mongoose = require('mongoose');
+// ROUTERLAR   
+const indexRouter = require("./routes/index");
+// MİDDLEWARE
+const send_contact_mail = require('./middlewares/nodemailler');
+// MONGOOSE 
+const connect_data_base = require("./server");
+// SİTE CONFİG 
+const configPath = path.join( __dirname, 'public');
+app.use(express.static(configPath))
+app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+app.use(cookieParser());
+// SİTE PAGE ROUTER
+app.use("/", indexRouter);
+
+
+app.use((req, res, next) => {
+    res.status(404).render('404');
 });
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+app.listen(3000, console.log("http://localhost:3000", "listen 3000"), error=>{if(error){console.log(error.message)}});
