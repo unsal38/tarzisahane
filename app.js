@@ -6,10 +6,11 @@ const path = require('path');
 const mongoose = require('mongoose');
 // ROUTERLAR   
 const indexRouter = require("./routes/index");
+const instagram = require('./routes/redirect_instagram')
 // MİDDLEWARE
 const send_contact_mail = require('./middlewares/nodemailler');
 // MONGOOSE 
-const connect_data_base = require("./server");
+require("./config/mongodb");
 // SİTE CONFİG 
 const configPath = path.join( __dirname, 'public');
 app.use(express.static(configPath))
@@ -17,7 +18,13 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+
+
+
+
 // SİTE PAGE ROUTER
+app.use('/instagram', instagram)
 app.use("/", indexRouter);
 
 
