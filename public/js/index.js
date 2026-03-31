@@ -28,6 +28,7 @@ function axios_get(url) {
     });
     return myPromiseGet
 }
+// AXİOS END
 
 $(() => {
     $("#instagram_embed .owl-carousel").owlCarousel({
@@ -38,7 +39,10 @@ $(() => {
         autoplay: true,
     });
 }) // OWL CARUSEL
-
+$(()=>{
+    $('#product .carousel-inner div:first-child').addClass('active') 
+    $('#trend_product .carousel-inner div:first-child').addClass('active') 
+}) // PRODUCT CORUSEL İLK ELEMENT ACTİVE CLASS EKLEME 
 
 
 
@@ -59,3 +63,11 @@ $(async () => {
     const get_url = '/instagram/post_delete'
     //  await axios_get(get_url).then((data)=> console.log(data))
 }) // İNSTAGRAM POST DELETE
+$(async () => {
+    const get_url = '/shopier'
+    // await axios_get(get_url).then((data)=> console.log(data))
+}) // SHOPİER ÜRÜN YENİLEME
+$(async () => {
+    const get_url = '/shopier/kategori'
+    // await axios_get(get_url).then((data)=> console.log(data))
+}) // SHOPİER KATAGORİ YENİLEME

@@ -3,35 +3,57 @@
 const axios = require('axios');
 require('dotenv').config
 
-const url = 'https://api.shopier.com:8443/v1/oauth2/token';
-
-const postData = {
-    grant_type: 'authorization_code',
-    code: req.query.code,
-    state: req.query.state,
-    client_id: process.env.client_id,
-    client_secret: process.env.client_secret
-}
-
-const postHeader = {
-    'Content-Type': 'application/x-www-form-urlencoded'
-}
-
-axios.post(url, postData, postHeader)
-    .then(function (response) {
-        //Success. Store the values in response accordingly
-        console.log(response.data)
-        const tokenType = response.data.token_type
-        const expiresIn = response.data.expires_in;
-        const accessToken = response.data.access_token;
-        const refreshToken = response.data.refresh_token;
-    })
-    .catch(function (error) {
-        //Failed. Check the error descriptions
-        if (error) {
-            const errorStatus = error.response.data.status;
-            const errorType = error.response.data.error;
-            const errorMessage = error.response.data.message;
-            console.log(errorMessage, 'shopier js')
+const shopier_api_listele = function shopier_api_listele() {
+    const url = 'https://api.shopier.com/v1/products?limit=10&page=1&sort=dateDesc';
+    const config = {
+        headers: {
+            accept: 'application/json',
+            authorization: `Bearer ${process.env.instagram_token}`
         }
-    });
+
+    }
+    const shopier_Data_promise = new Promise(function (resolve, reject) {
+        axios.get(url, config)
+            .then(function (res) {
+                resolve(res.data)
+                // console.log(res.data,'1')
+
+            })
+            .catch(function (err) {
+                if (err) {
+                    const errorMessage = err.message;
+                    console.log(errorMessage, 'shopier js')
+                }
+            });
+    })
+    return shopier_Data_promise
+}
+const shopier_api_kategori_listele = function shopier_api_kategori_listele() {
+    const url = 'https://api.shopier.com/v1/categories?limit=10&page=1&sort=asc';
+    const config = {
+        headers: {
+            accept: 'application/json',
+            authorization: `Bearer ${process.env.instagram_token}`
+        }
+
+    }
+    const shopier_kategori_Data_promise = new Promise(function (resolve, reject) {
+        axios.get(url, config)
+            .then(function (res) {
+                resolve(res.data)
+                // console.log(res.data, '2')
+
+            })
+            .catch(function (err) {
+                if (err) {
+                    const errorMessage = err.message;
+                    console.log(errorMessage, 'shopier js')
+                }
+            });
+    })
+    return shopier_kategori_Data_promise
+}
+module.exports = {
+    shopier_api_listele,
+    shopier_api_kategori_listele,
+}

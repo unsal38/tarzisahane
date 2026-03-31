@@ -7,8 +7,10 @@ const mongoose = require('mongoose');
 // ROUTERLAR   
 const indexRouter = require("./routes/index");
 const instagram = require('./routes/redirect_instagram')
+const shopier = require('./routes/shopier')
 // MİDDLEWARE
 const send_contact_mail = require('./middlewares/nodemailler');
+
 // MONGOOSE 
 require("./config/mongodb");
 // SİTE CONFİG 
@@ -24,6 +26,7 @@ app.use(cookieParser());
 
 
 // SİTE PAGE ROUTER
+app.use('/shopier', shopier)
 app.use('/instagram', instagram)
 app.use("/", indexRouter);
 

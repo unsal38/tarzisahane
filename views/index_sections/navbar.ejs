@@ -5,14 +5,14 @@
             <!--SOL ANA MENU -- 1 -->
             <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
                 data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                <h6 class="m-0">Categories</h6>
+                <h6 class="m-0">Takı Hediyelik Eşya</h6>
                 <i class="fa fa-angle-down text-dark"></i>
             </a>
             <!-- show OLDUĞUNDA İLK YÜKLEMEDE MENU AÇIK OLUYOR -->
             <nav class="collapse  navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
                 id="navbar-vertical">
                 <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                    <div class="nav-item dropdown">
+                    <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link" data-toggle="dropdown">Dresses <i
                                 class="fa fa-angle-down float-right mt-1"></i></a>
                         <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
@@ -22,29 +22,13 @@
                         </div>
                     </div>
                     <a href="" class="nav-item nav-link">Shirts</a>
-                    <a href="" class="nav-item nav-link">Jeans</a>
-                    <a href="" class="nav-item nav-link">Swimwear</a>
-                    <a href="" class="nav-item nav-link">Sleepwear</a>
-                    <a href="" class="nav-item nav-link">Sportswear</a>
-                    <a href="" class="nav-item nav-link">Jumpsuits</a>
-                    <a href="" class="nav-item nav-link">Blazers</a>
-                    <a href="" class="nav-item nav-link">Jackets</a>
-                    <a href="" class="nav-item nav-link">Shoes</a>
-                </div>
-            </nav>
-
-            <!--SOL ANA MENU -- 2 -->
-            <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
-                data-toggle="collapse" href="#navbar-vertical1"
-                style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                <h6 class="m-0">Categories1</h6>
-                <i class="fa fa-angle-down text-dark"></i>
-            </a>
-            <nav class="collapse navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
-                id="navbar-vertical1">
-                <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                    <a href="" class="nav-item nav-link">TAKI</a>
-                    <a href="" class="nav-item nav-link">KOLYE</a>
+     
+                    <a href="" class="nav-item nav-link">Jackets</a> -->
+                    <% shopier_katogori_data.forEach(v_kategori => { %>
+                        <a data-shopier-katg-id="<%= v_kategori.id _%>" href="kategori<%= v_kategori.id _%>" class="nav-item nav-link"><%= v_kategori.title _%></a>
+                    <%  }); %>
+                   
+                    
                 </div>
             </nav>
 
@@ -65,7 +49,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- //// SLAYT ÜSTÜ MENU -->
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <!-- <a href="/" class="nav-item nav-link active">Ana Sayfa</a>
                          <a href="shop.html" class="nav-item nav-link">Shop</a>
@@ -77,6 +61,7 @@
                                 <a href="checkout.html" class="dropdown-item">Checkout</a>
                             </div>
                         </div> -->
+                        <a href="https://www.shopier.com/creo3dlife" class="col-2 nav-item nav-link"><img class="w-50" src="/img/shopier-logo.png" alt="shopier logo"></a>
                         <a href="contact" class="nav-item nav-link">İletişim</a>
                     </div>
                     <div class="navbar-nav ml-auto py-0">
