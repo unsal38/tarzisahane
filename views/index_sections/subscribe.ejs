@@ -6,26 +6,18 @@
             <p>Sosyal Medya Kanallarından da Bizi Takip Edebilirsiniz</p>
         </div>
         <div id="instagram_embed">
-
             <div class="owl-carousel owl-theme">
                 <% insta_post_data.forEach((v)=> {%>
-            
                         <div data-id="<%= v._id _%>" class="card">
-                            <img class="card-img W-25" alt="<%= v.caption _%>"
-                                src="<%= v.media_url _%>">
+                            <img class="card-img W-25" alt="<%= v.caption _%>" loading="lazy"
+                                data-src="<%= v.media_url _%>">
                             <div class="card-img-overlay">
                                 <i class="card-title fa-brands fa-instagram fa-2x"></i>
                             </div>
                         </div>
-        
-
                     <% }); %>
             </div>
-
-
         </div>
-
-
     </div>
     <!-- <form action="">
                     <div class="input-group">

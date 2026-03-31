@@ -24,11 +24,14 @@
                     <a href="" class="nav-item nav-link">Shirts</a>
      
                     <a href="" class="nav-item nav-link">Jackets</a> -->
-                    <% shopier_katogori_data.forEach(v_kategori => { %>
-                        <a data-shopier-katg-id="<%= v_kategori.id _%>" href="kategori<%= v_kategori.id _%>" class="nav-item nav-link"><%= v_kategori.title _%></a>
-                    <%  }); %>
-                   
-                    
+                    <% shopier_katogori_data.forEach(v_kategori=> { %>
+                        <a data-shopier-katg-id="<%= v_kategori.id _%>" href="kategori<%= v_kategori.id _%>"
+                            class="text-capitalize nav-item nav-link">
+                            <%= v_kategori.title _%>
+                        </a>
+                        <% }); %>
+
+
                 </div>
             </nav>
 
@@ -61,7 +64,8 @@
                                 <a href="checkout.html" class="dropdown-item">Checkout</a>
                             </div>
                         </div> -->
-                        <a href="https://www.shopier.com/creo3dlife" class="col-2 nav-item nav-link"><img class="w-50" src="/img/shopier-logo.png" alt="shopier logo"></a>
+                        <a href="https://www.shopier.com/creo3dlife" class="col-2 nav-item nav-link"><img
+                                class="w-75 h-75" src="/img/shopier-logo.png" alt="shopier logo"></a>
                         <a href="contact" class="nav-item nav-link">İletişim</a>
                     </div>
                     <div class="navbar-nav ml-auto py-0">

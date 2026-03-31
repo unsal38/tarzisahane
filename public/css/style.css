@@ -10753,6 +10753,34 @@ a.text-dark:focus {
   animation: action 1s infinite alternate;
 }
 
+.back-to-up-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-to-up {
+  position: relative;
+  /* display: none; */
+  /* right: 30px;
+  bottom: 30px; */
+  z-index: 11;
+  animation: action 1s infinite alternate;
+  border-radius: 20px;
+  width: 20vw;
+  margin-top: 1vh;
+}
+
+.back-to-up-hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 3px solid rgb(209 156 152);
+  width: 100%;
+  position: absolute;
+}
+
+
 @keyframes action {
   0% {
     transform: translateY(0);
@@ -10774,4 +10802,8 @@ a.text-dark:focus {
 #instagram_embed .owl-prev,
 #instagram_embed .owl-next {
   font-size: 3rem;
+}
+
+#product div.card{
+  display: none;
 }
