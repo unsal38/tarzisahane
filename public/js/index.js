@@ -98,26 +98,47 @@ $(() => {
 
 
 }) // IntersectionObserver RESİMLERİN DATA-SRC SRC GEÇİŞLERİ
-$(()=>{
-
+$(() => {
     const target_div = $('#product .card')
     const active_div = 8
     for (let index = 0; index < active_div; index++) {
         const element = target_div[index];
         $(element).fadeIn();
-      // $(element).fadeOut();
     }
     let new_active_div = 8
     $('button[name="back-to-up"]').on('click', function () {
-         new_active_div += 8
+        // const url__check = window.location.href
+        // const url_split = url__check.split('#')[1]
+        // if(url_split){
+        //     if(url_split.length > 0 && url_split.length !== undefined) window.location.href = window.location.origin
+        // }
+        new_active_div += 8
         for (let index = 0; index < new_active_div; index++) {
             const element = target_div[index];
             $(element).fadeIn(2000);
         }
     });
 })// ÜRÜNLER HEPSİNİ GÖSTERMEME
-
-
+$(() => {
+    $('nav#navbar-vertical a').on('click', function () {
+        const data_shopier_katg_id = $(this).attr('data-shopier-katg-id')
+        const product_all = $(`#product div[data-kategori]`)
+        const product = $(`#product div[data-kategori="${data_shopier_katg_id}"]`)
+        $(product_all).fadeOut(2000);
+        $(product).fadeIn(3000);
+    });
+})// FİLTRELEME
+$(document).ready(function(){
+  $("input[name='product_search']").on("keyup", function() {
+    const value = $(this).val().toLowerCase();
+    const target_div = $('#product div.card')
+    $(target_div).filter(function() {
+        const target_div_element = $(this).children('.card-body')
+        const target_div_text = $(target_div_element).children('h6')
+        $(this).toggle($(target_div_text).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});// SEARCH
 
 
 

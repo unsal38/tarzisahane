@@ -6,7 +6,7 @@
         <% shopi_product_data.forEach(v_product=> {%>
             <% let media=v_product.media %>
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                    <div data-kategori="<%= v_product.categories.id _%>" class="card product-item border-0 mb-4">
+                    <div data-kategori="<%= v_product.categories[0].id _%>" class="card product-item border-0 mb-4">
 
                         <div
                             class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
